@@ -1,0 +1,76 @@
+{
+    "name": "base-ui-selection",
+    "version": "0.1.0",
+    "description": "An unstyled floating toolbar for text selections in React, built on Base UI.",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gilsmt/base-ui-selection.git"
+    },
+    "homepage": "https://github.com/gilsmt/base-ui-selection#readme",
+    "bugs": {
+        "url": "https://github.com/gilsmt/base-ui-selection/issues"
+    },
+    "type": "module",
+    "sideEffects": false,
+    "engines": {
+        "node": ">=24"
+    },
+    "keywords": [
+        "react",
+        "react-component",
+        "react-components",
+        "unstyled",
+        "base-ui",
+        "selection",
+        "toolbar",
+        "popover",
+        "floating"
+    ],
+    "main": "./dist/selection.js",
+    "module": "./dist/selection.js",
+    "types": "./dist/selection.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/selection.d.ts",
+            "import": "./dist/selection.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.build.json",
+        "type-check": "tsc --noEmit",
+        "test": "bun test test/unit",
+        "test:integration": "playwright test",
+        "test:all": "bun run test && bun run test:integration",
+        "publint": "publint",
+        "attw": "attw --pack . --profile esm-only",
+        "prepack": "bun run build"
+    },
+    "peerDependencies": {
+        "@base-ui/react": "^1.9.0",
+        "react": "^19",
+        "react-dom": "^19"
+    },
+    "devDependencies": {
+        "@arethetypeswrong/cli": "^0.18.5",
+        "@base-ui/react": "1.9.0",
+        "@playwright/test": "^1.65.0",
+        "@types/bun": "latest",
+        "@types/node": "^26.6.6",
+        "@types/react": "^19.3.0",
+        "@types/react-dom": "^19.3.0",
+        "@vitejs/plugin-react": "6.2.1",
+        "happy-dom": "^21.0.4",
+        "publint": "^0.3.25",
+        "react": "19.3.1",
+        "react-dom": "19.3.1",
+        "typescript": "7.0.2",
+        "vite": "8.3.6"
+    }
+}
