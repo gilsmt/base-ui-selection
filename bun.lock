@@ -4,6 +4,9 @@
   "workspaces": {
     "": {
       "name": "base-ui-masonry",
+      "dependencies": {
+        "@base-ui/utils": "^0.5.0",
+      },
       "devDependencies": {
         "@arethetypeswrong/cli": "^0.18.5",
         "@base-ui/react": "1.9.0",

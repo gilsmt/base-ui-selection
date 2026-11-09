@@ -52,6 +52,9 @@
         "attw": "attw --pack . --profile esm-only",
         "prepack": "bun run build"
     },
+    "dependencies": {
+        "@base-ui/utils": "^0.5.0"
+    },
     "peerDependencies": {
         "@base-ui/react": "^1.9.0",
         "react": "^19",

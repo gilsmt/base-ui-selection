@@ -1,0 +1,126 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #222;
+    background: #fff;
+}
+
+.scene {
+    padding: 220px 24px 40px;
+}
+
+.geometry-scene {
+    min-height: 2000px;
+    padding: 0;
+}
+
+.area {
+    padding: 16px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+}
+
+.editor,
+.article {
+    max-width: 520px;
+    outline: none;
+}
+
+.editor p,
+.article p {
+    margin: 0 0 8px;
+}
+
+.editor p:last-child,
+.article p:last-child {
+    margin-bottom: 0;
+}
+
+.nested-outer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nested-outer > p {
+    margin: 0;
+}
+
+.nested-inner {
+    border-style: dashed;
+}
+
+.status {
+    display: block;
+    margin-top: 8px;
+    font: 12px/18px ui-monospace, monospace;
+    color: #555;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.popup {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    background: #fff;
+    border: 1px solid #888;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px #0002;
+}
+
+.viewport,
+.viewport > [data-current] {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.item {
+    padding: 4px 8px;
+    font: inherit;
+    font-size: 13px;
+    background: none;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.item:hover,
+.item:focus-visible {
+    background: #eef;
+    outline: 1px solid #66f;
+}
+
+.separator {
+    width: 1px;
+    height: 18px;
+    margin: 0 2px;
+    background: #ccc;
+}
+
+.arrow {
+    position: absolute;
+    bottom: -5px;
+    left: var(--arrow-left, 50%);
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border: 1px solid #888;
+    transform: translate(-50%, 50%) rotate(45deg);
+}
