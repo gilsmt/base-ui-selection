@@ -1,11 +1,7 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
-import {
-    Selection,
-    useSelection,
-    useSelectionState,
-    type SelectionChangeReason,
-} from "../../../src/selection";
+import * as Selection from "../../../src/selection";
+import type { SelectionChangeReason } from "../../../src/selection";
 import "./styles.css";
 
 interface SelectionEvent {
@@ -37,7 +33,7 @@ function SelectionStatus({
     testId: string;
     reason: SelectionChangeReason;
 }) {
-    const { open, selection } = useSelectionState();
+    const { open, selection } = Selection.useSelectionState();
     return (
         <output
             className="status"
@@ -59,7 +55,7 @@ function FormatItem({
     command: string;
     children: React.ReactNode;
 }) {
-    const selection = useSelection();
+    const selection = Selection.useSelection();
 
     return (
         <Selection.Item

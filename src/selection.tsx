@@ -807,7 +807,7 @@ function mapBaseUiReason(reason: string): SelectionChangeReason {
     }
 }
 
-export function SelectionRoot(props: SelectionRootProps): React.JSX.Element {
+export function Root(props: SelectionRootProps): React.JSX.Element {
     const {
         children,
         open: openProp,
@@ -956,8 +956,7 @@ export function SelectionRoot(props: SelectionRootProps): React.JSX.Element {
             return;
         }
 
-        const requested = openProp ?? internalOpenRef.current;
-        const wasOpen = requested && !dismissedRef.current;
+        const wasOpen = getIsOpen();
 
         if (dismissedRef.current) {
             dismissedRef.current = false;
@@ -1245,7 +1244,7 @@ export function SelectionRoot(props: SelectionRootProps): React.JSX.Element {
     );
 }
 
-export function SelectionArea(props: SelectionAreaProps): React.JSX.Element {
+export function Area(props: SelectionAreaProps): React.JSX.Element {
     const { children, tabIndex, ref, ...elementProps } = props;
     const { areaRef, announcement } = useSelectionRootContext();
 
@@ -1291,13 +1290,13 @@ const POPUP_LAYOUT_STYLE: React.CSSProperties = {
     height: "var(--popup-height, auto)",
 };
 
-export function SelectionPortal(
+export function Portal(
     props: SelectionPortalProps,
 ): React.JSX.Element {
     return <Popover.Portal {...props} />;
 }
 
-export function SelectionPositioner(
+export function Positioner(
     props: SelectionPositionerProps,
 ): React.JSX.Element | null {
     const {
@@ -1419,7 +1418,7 @@ export function SelectionPositioner(
     );
 }
 
-export function SelectionPopup(props: SelectionPopupProps): React.JSX.Element {
+export function Popup(props: SelectionPopupProps): React.JSX.Element {
     const {
         children,
         render,
@@ -1504,7 +1503,7 @@ export function SelectionPopup(props: SelectionPopupProps): React.JSX.Element {
     );
 }
 
-export function SelectionItem(props: SelectionItemProps): React.JSX.Element {
+export function Item(props: SelectionItemProps): React.JSX.Element {
     const { closeOnClick = true, onClick, ...buttonProps } = props;
     const { dismiss } = useSelectionRootContext();
 
@@ -1530,30 +1529,18 @@ export function SelectionItem(props: SelectionItemProps): React.JSX.Element {
     );
 }
 
-export function SelectionSeparator(
+export function Separator(
     props: SelectionSeparatorProps,
 ): React.JSX.Element {
     return <Toolbar.Separator {...props} />;
 }
 
-export function SelectionArrow(props: SelectionArrowProps): React.JSX.Element {
+export function Arrow(props: SelectionArrowProps): React.JSX.Element {
     return <Popover.Arrow {...props} />;
 }
 
-export function SelectionViewport(
+export function Viewport(
     props: SelectionViewportProps,
 ): React.JSX.Element {
     return <Popover.Viewport {...props} />;
 }
-
-export const Selection = {
-    Root: SelectionRoot,
-    Area: SelectionArea,
-    Portal: SelectionPortal,
-    Positioner: SelectionPositioner,
-    Popup: SelectionPopup,
-    Item: SelectionItem,
-    Separator: SelectionSeparator,
-    Arrow: SelectionArrow,
-    Viewport: SelectionViewport,
-};

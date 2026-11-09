@@ -1,12 +1,8 @@
 import * as React from "react";
-import {
-    Selection,
-    useSelection,
-    useSelectionState,
-} from "../../../src/selection";
+import * as Selection from "../../../src/selection";
 
 function SelectionStatus({ label }: { label: string }) {
-    const { selection, open } = useSelectionState();
+    const { selection, open } = Selection.useSelectionState();
 
     return (
         <p className="pg-selection-status" aria-live="off">
@@ -28,7 +24,7 @@ function Action({
     command: string;
     children: React.ReactNode;
 }) {
-    const selection = useSelection();
+    const selection = Selection.useSelection();
 
     return (
         <Selection.Item
@@ -44,7 +40,7 @@ function Action({
 }
 
 function CopyAction() {
-    const selection = useSelection();
+    const selection = Selection.useSelection();
 
     return (
         <Selection.Item
@@ -91,9 +87,10 @@ function StaticToolbar() {
                             className="pg-selection-item"
                             closeOnClick={false}
                             onClick={(event) => {
-                                event.currentTarget.dataset.pressed = "true";
+                                const button = event.currentTarget;
+                                button.dataset.pressed = "true";
                                 window.setTimeout(() => {
-                                    delete event.currentTarget.dataset.pressed;
+                                    delete button.dataset.pressed;
                                 }, 600);
                             }}
                         >
@@ -107,7 +104,7 @@ function StaticToolbar() {
 }
 
 function NestedBoldAction() {
-    const selection = useSelection();
+    const selection = Selection.useSelection();
 
     return (
         <Selection.Item

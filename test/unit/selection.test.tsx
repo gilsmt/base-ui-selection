@@ -1,10 +1,6 @@
 import { afterEach, describe, expect, test } from "bun:test";
 import * as React from "react";
-import {
-    Selection,
-    useSelection,
-    useSelectionState,
-} from "../../src/selection";
+import * as Selection from "../../src/selection";
 import {
     cleanup,
     clearSelection,
@@ -30,7 +26,7 @@ interface Change {
 }
 
 function StateProbe() {
-    const { open, selection } = useSelectionState();
+    const { open, selection } = Selection.useSelectionState();
     return (
         <output data-testid="state">
             {open ? "open" : "closed"}:{selection?.text ?? "none"}
@@ -47,7 +43,7 @@ function ActionItem({
     closeOnClick?: boolean | undefined;
     onRun?: ((text: string) => void) | undefined;
 }) {
-    const selection = useSelection();
+    const selection = Selection.useSelection();
     return (
         <Selection.Item
             closeOnClick={closeOnClick}
